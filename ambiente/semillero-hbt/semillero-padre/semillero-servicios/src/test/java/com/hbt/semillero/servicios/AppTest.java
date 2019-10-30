@@ -3,6 +3,11 @@ package com.hbt.semillero.servicios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
+/**
+ * Clase donde se hacen las pruebas unitarias
+ *
+ */
 public class AppTest {
 
 	public void shouldAnswerWithTrue() {
@@ -57,5 +62,10 @@ public class AppTest {
 //		Assert.assertEquals(cadena, cadenaInvertida);
 		
 	}
+	
+	//TODO
+	/**
+	 * Hacer un metodo que use el metodo toString de la entidad Comic
+	 */
 
 }// Cierre de la clase
