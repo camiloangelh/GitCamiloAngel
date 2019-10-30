@@ -18,6 +18,12 @@ public enum EstadoEnum {
 	 */
 	private String codigoMensaje;
 
+	/**
+	 * 
+	 * Constructor de la clase.
+	 * 
+	 * @param codigoMensaje
+	 */
 	private EstadoEnum(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
 	}

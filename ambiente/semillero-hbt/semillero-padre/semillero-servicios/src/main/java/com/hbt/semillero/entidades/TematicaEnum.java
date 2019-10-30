@@ -6,7 +6,7 @@ package com.hbt.semillero.entidades;
 /**
  * <b>Descripción:<b> Clase que determina <b>Caso de Uso:<b>
  * 
- * @author camil
+ * @author cangelh
  * @version
  */
 public enum TematicaEnum {

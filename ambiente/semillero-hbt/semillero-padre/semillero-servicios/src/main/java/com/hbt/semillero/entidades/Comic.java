@@ -282,7 +282,7 @@ public class Comic implements Serializable {
 	 * 
 	 * @return El fechaVenta asociado a la clase
 	 */
-	@Column(name = "SCFECHAVENTA")
+	@Column(name = "SCFECHA_VENTA")
 	public LocalDate getFechaVenta() {
 		return fechaVenta;
 	}
