@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.entidades.Comic;
 import com.hbt.semillero.entidades.EstadoEnum;
 import com.hbt.semillero.entidades.TematicaEnum;
+import com.hbt.semillero.pojo.GestionarComicPOJO;
 
 /**
  * Clase donde se hacen las pruebas unitarias
@@ -38,23 +40,10 @@ public class AppTest {
 		return cadenaInvertida;
 	}
 
-	@Test
-	public void primeraPrueba() {
-		Long resultadoEsperado = 150L;
-		Long sumando1 = 100L;
-		Long sumando2 = 50L;
-		Long resultado = sumando1 + sumando2;
-
-		Assert.assertEquals(resultado, resultadoEsperado);
-		resultadoEsperado = 200L;
-		Assert.assertNotEquals(resultado, resultadoEsperado);
-
-	}
-
 	/**
 	 * Valida el metodo invertirCadena()
 	 */
-	@Test
+	@Test(enabled = false)
 	public void validarInvertirCadena() {
 		String cadena = "prueba";
 		String cadenaEsperada = "abeurp";
@@ -75,7 +64,7 @@ public class AppTest {
 	 * Uso</b>
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void validarEstado() {
 		EstadoEnum estadoActivo = EstadoEnum.ACTIVO;
 
@@ -98,11 +87,10 @@ public class AppTest {
 		}
 	}
 
-	// TODO
 	/**
 	 * Hacer un metodo que use el metodo toString de la entidad Comic
 	 */
-	@Test
+	@Test(enabled = false)
 	public void validarToStringComic() {
 		Comic comic = new Comic();
 		comic.setId("1");
@@ -120,5 +108,7 @@ public class AppTest {
 
 		System.out.println(comic.toString());
 	}
+
+
 
 }// Cierre de la clase

@@ -48,6 +48,11 @@ public class ComicDTO implements Serializable {
 	private TematicaEnum tematicaEnum;
 
 	/**
+	 * Varible que representa la coleccion del comic
+	 */
+	private String coleccion;
+
+	/**
 	 * Variable que representa el numero de paginas del comic
 	 */
 	private Integer numeroPaginas;
@@ -105,23 +110,25 @@ public class ComicDTO implements Serializable {
 	 * @param id
 	 * @param nombre
 	 * @param editorial
-	 * @param tematica
+	 * @param tematicaEnum
+	 * @param coleccion
 	 * @param numeroPaginas
 	 * @param precio
 	 * @param autores
 	 * @param color
 	 * @param fechaVenta
-	 * @param estado
+	 * @param estadoEnum
 	 * @param cantidad
 	 */
-	public ComicDTO(String id, String nombre, String editorial, TematicaEnum tematicaEnum, Integer numeroPaginas,
-			BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta, EstadoEnum estadoEnum,
-			Long cantidad) {
+	public ComicDTO(String id, String nombre, String editorial, TematicaEnum tematicaEnum, String coleccion,
+			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,
+			EstadoEnum estadoEnum, Long cantidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.editorial = editorial;
 		this.tematicaEnum = tematicaEnum;
+		this.coleccion = coleccion;
 		this.numeroPaginas = numeroPaginas;
 		this.precio = precio;
 		this.autores = autores;
@@ -131,7 +138,9 @@ public class ComicDTO implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-// ---------------------------------GETS AND SETS--------------------------------------------
+//------------------------ FUNCIONES --------------------
+
+// ---------------------------GETS AND SETS----------------------
 	/**
 	 * Metodo encargado de retornar el valor del atributo id
 	 * 
@@ -184,6 +193,23 @@ public class ComicDTO implements Serializable {
 	 */
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
+	}
+
+	
+	/**
+	 * Metodo encargado de retornar el valor del atributo coleccion
+	 * @return El coleccion asociado a la clase
+	 */
+	public String getColeccion() {
+		return coleccion;
+	}
+
+	/**
+	 * Metodo encargado de modificar el valor del atributo coleccion
+	 * @param coleccion El nuevo coleccion a modificar.
+	 */
+	public void setColeccion(String coleccion) {
+		this.coleccion = coleccion;
 	}
 
 	/**
@@ -331,7 +357,5 @@ public class ComicDTO implements Serializable {
 	public void setCantidad(Long cantidad) {
 		this.cantidad = cantidad;
 	}
-
-//------------------------------ FUNCIONES ------------------------------------------
 
 }// Cierre de la clase
