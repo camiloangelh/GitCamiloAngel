@@ -83,45 +83,6 @@ public class GestionarComicPOJO {
 
 	/**
 	 * 
-	 * Metodo encargado de modificar un comic <b>Caso de Uso</b>
-	 * 
-	 * @param nombre
-	 */
-	public void modificarComicDTO(String id, String nombre) {
-		ComicDTO comicModificar = null;
-		for (int i = 0; i < listaComics.size(); i++) {
-			comicModificar = listaComics.get(i);
-			if (comicModificar.getId().equals(id)) {
-				comicModificar.setNombre(nombre);
-				return;
-			}
-		}
-	}
-
-	/**
-	 * 
-	 * Metodo encargado de eliminar un comicDTO de la lista de comics <b>Caso de
-	 * Uso</b>
-	 * 
-	 * @param id
-	 */
-	public void eliminarComic(String id) {
-		int i = 0;
-		ComicDTO comicEliminar = null;
-		while (i < listaComics.size()) {
-			comicEliminar = listaComics.get(i);
-
-			if (comicEliminar.getId().equals(id)) {
-				listaComics.remove(comicEliminar);
-				return;
-			}
-
-			i++;
-		}
-	}
-
-	/**
-	 * 
 	 * Metodo encargado de modificar un Comic de la lista de comics <b>Caso de
 	 * Uso</b>
 	 * 
@@ -158,6 +119,45 @@ public class GestionarComicPOJO {
 		}
 
 		listaComics.add(comicDTO);
+	}
+
+	/**
+	 * 
+	 * Metodo encargado de modificar un comic <b>Caso de Uso</b>
+	 * 
+	 * @param nombre
+	 */
+	public void modificarComicDTO(String id, String nombre) {
+		ComicDTO comicModificar = null;
+		for (int i = 0; i < listaComics.size(); i++) {
+			comicModificar = listaComics.get(i);
+			if (comicModificar.getId().equals(id)) {
+				comicModificar.setNombre(nombre);
+				return;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * Metodo encargado de eliminar un comicDTO de la lista de comics <b>Caso de
+	 * Uso</b>
+	 * 
+	 * @param id
+	 */
+	public void eliminarComic(String id) {
+		int i = 0;
+		ComicDTO comicEliminar = null;
+		while (i < listaComics.size()) {
+			comicEliminar = listaComics.get(i);
+
+			if (comicEliminar.getId().equals(id)) {
+				listaComics.remove(comicEliminar);
+				return;
+			}
+
+			i++;
+		}
 	}
 
 	/**
