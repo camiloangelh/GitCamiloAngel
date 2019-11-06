@@ -1,3 +1,5 @@
 
-<img src="https://www.elempleo.com/sitios-empresariales/colombia/heinsohn-business-technology/img/elempleo-02.jpg" height="500" width="1000">
+<img [src]="urlImagen" height="500" width="1000" (click)= "ejecucionEventoClick('Camilo', 366)">
+<input type="text" class= "form-control-plaintext" id= "staticEmail" [(ngModel)]="urlImagen" name="urlImagen">
 <mostrar-informacion></mostrar-informacion>
+<crear-persona></crear-persona>

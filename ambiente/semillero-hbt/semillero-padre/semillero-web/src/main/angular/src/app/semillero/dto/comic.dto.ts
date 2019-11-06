@@ -66,4 +66,4 @@ export class ComicDTO {
     public cantidad: number;
 
   
-}
+}//Cierre de la clase

@@ -10,15 +10,29 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bienvenida-component.html',
 })
 export class BienvenidaComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+  /**
+   * Indicador de la URL de la imagen
+   */
+  private urlImagen : string;
+
+  /**
+   * Constructor de la clase
+   */
+  constructor(){
+    console.log()
   }
 
-constructor(){
-  console.log()
-}
- 
+  ngOnInit(): void {
+    this.urlImagen = "https://www.elempleo.com/sitios-empresariales/colombia/heinsohn-business-technology/img/elempleo-02.jpg";
 
+  }
+
+ 
+ 
+  public ejecucionEventoClick(parametroEvento : any, numero : number) : void{
+    alert("Hola " + parametroEvento + " " +  numero);
+  }
 
 
 }

@@ -1,0 +1,10 @@
+<br/>
+<ul>
+  <li>{{mensajeLista}}</li>
+</ul>
+<br/>
+<button type="button" class="btn btn-primary" (click) = eliminarElementoListaObjeto(3)>Eliminar posición tres</button>
+<div class="alert alert-primary" role="alert" *ngIf= "centinela; else elseBlock">
+    {{mensajeBtnEliminar}}
+  </div>
+  <ng-template #elseBlock>{{mensajeBtnEliminar}}</ng-template>

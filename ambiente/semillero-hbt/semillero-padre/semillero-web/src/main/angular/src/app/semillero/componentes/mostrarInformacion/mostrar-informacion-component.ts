@@ -11,7 +11,7 @@ import { OnInit, Component } from '@angular/core';
   })
   export class MostrarInformacionComponent implements OnInit{
     ngOnInit(): void {
-        throw new Error("Method not implemented.");
+       
       }
     
       /**
@@ -20,4 +20,4 @@ import { OnInit, Component } from '@angular/core';
     constructor(){
       console.log()
     }
-  }
+  }//Cierre del componente

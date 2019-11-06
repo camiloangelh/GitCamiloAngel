@@ -16,6 +16,7 @@ import { MostrarInformacionComponent} from './semillero/componentes/mostrarInfor
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
 export { ResultadoDTO } from './semillero/dto/resultado.dto';
+export { ObjetoSesionDos } from './semillero/dto/objetoSesionDos.dto';
 
 @NgModule({
   declarations: [
