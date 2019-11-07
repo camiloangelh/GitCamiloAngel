@@ -358,4 +358,16 @@ public class ComicDTO implements Serializable {
 		this.cantidad = cantidad;
 	}
 
+	/**
+	 * Metodo encargado de 
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 * 
+	 * @return
+	 */
+	public TematicaEnum getTematicaEnum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }// Cierre de la clase

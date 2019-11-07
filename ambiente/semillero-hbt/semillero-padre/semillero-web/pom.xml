@@ -18,7 +18,15 @@
 		<workingDirectory.project>${project.basedir}/src/main/angular</workingDirectory.project>
 	</properties>
 
-
+<profiles>
+        <profile>
+            <id>compile-angular</id>
+            <activation>
+                <property>
+                    <name>skipAngular</name>
+                    <value>!true</value>
+                </property>
+            </activation>
 	<build>
 		<plugins>
 			<plugin>
@@ -50,33 +58,35 @@
 							<workingDirectory>${workingDirectory.project}</workingDirectory>
 						</configuration>
 					</execution>
-					<execution>
-						<id>ng-build-exec</id>
-						<phase>${angular.build.phase}</phase>
-						<configuration>
-							<workingDirectory>${workingDirectory.project}</workingDirectory>
-							<argument>angular</argument>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-angular-exec</id>
-						<phase>${angular.build.phase}</phase>
-						<configuration>
-							<resources>
-								<resource>
-									<directory>${workingDirectory.project}/dist</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+						<execution>
+							<id>ng-build-exec</id>
+							<phase>${angular.build.phase}</phase>
+							<configuration>
+								<workingDirectory>${workingDirectory.project}</workingDirectory>
+								<argument>angular</argument>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>copy-angular-exec</id>
+							<phase>${angular.build.phase}</phase>
+							<configuration>
+								<resources>
+									<resource>
+										<directory>${workingDirectory.project}/dist</directory>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+	</profiles>
 
 </project>
