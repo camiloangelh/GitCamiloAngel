@@ -93,7 +93,7 @@ public class AppTest {
 	@Test(enabled = false)
 	public void validarToStringComic() {
 		Comic comic = new Comic();
-		comic.setId("1");
+		comic.setId(1L);
 		comic.setNombre("Batman Return");
 		comic.setEditorial("DC Comics");
 		comic.setTematicaEnum(TematicaEnum.BELICO);
@@ -109,6 +109,34 @@ public class AppTest {
 		System.out.println(comic.toString());
 	}
 
-
+	/**
+	 * 
+	 * Metodo encargado de comparar dos cadenas
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	@Test
+	public void compararCadenas() {
+		String cadena1 = "street";
+		String cadena2;
+		cadena2 = new String("street");
+		Assert.assertTrue(!(cadena1 == cadena2));
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de comparar dos cadenas con equals
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	@Test
+	public void compararCadenasEquals() {
+		String cadena1 = "street";
+		String cadena2;
+		cadena2 = new String("street");
+		Assert.assertTrue(cadena1.equals(cadena2));
+	}
 
 }// Cierre de la clase
