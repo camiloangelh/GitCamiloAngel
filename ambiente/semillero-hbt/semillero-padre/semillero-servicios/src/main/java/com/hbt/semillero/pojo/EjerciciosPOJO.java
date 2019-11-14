@@ -128,19 +128,19 @@ public class EjerciciosPOJO {
 	 */
 	public String ejercicio8(int pedido) {
 		int moneda1000=0, moneda500=0, moneda200=0, moneda100=0, moneda50=0;
-		while(pedido > 1000) {
+		while(pedido >= 1000) {
 			moneda1000++;
 			pedido = pedido - 1000;
 		}
-		while(pedido > 500) {
+		while(pedido >= 500) {
 			moneda500++;
 			pedido = pedido - 500;
 		}
-		while(pedido > 200) {
+		while(pedido >= 200) {
 			moneda200++;
 			pedido = pedido - 200;
 		}
-		while(pedido > 100) {
+		while(pedido >= 100) {
 			moneda100++;
 			pedido = pedido - 100;
 		}
