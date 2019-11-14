@@ -162,4 +162,17 @@ public class EjerciciosPOJO {
 		throw new Exception();
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de hacer el ejercicio 9, secuencia. El numero siguientes es 10
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	public String ejercicio11(Integer numero1, Integer numero2) {
+		if(numero1+numero2 == 10) {
+			return numero1 + "" + numero2;
+		}
+		return "";
+	}
 }//Cierre de la clase

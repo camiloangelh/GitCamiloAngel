@@ -108,8 +108,18 @@ public class EjerciciosTest {
 		Assert.assertEquals(mensajeValido1000, ejerciciosPOJO.ejercicio8(1000));
 	}
 	
+	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio 11
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
 	@Test
-	public void ejercicio9() {
+	public void ejercicio11Test() {
+		String siguiente = "19";
+		Assert.assertEquals(siguiente, ejerciciosPOJO.ejercicio11(1, 9));
 		
 	}
 	
