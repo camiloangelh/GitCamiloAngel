@@ -99,13 +99,18 @@ public class EjerciciosTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void ejercicio8Test() {
 		String mensajeValido1000 = "Moneda 1000: " + 1 + "Moneda 500: " + 0 + "Moneda 200: " + 0 + "Moneda 100: " + 0 + "Moneda 50: " + 0;
 
 		String mensajeValido5550 = "Moneda 1000: " + 5 + "Moneda 500: " + 1 + "Moneda 200: " + 0 + "Moneda 100: " + 0 + "Moneda 50: " + 1;
 		Assert.assertEquals(mensajeValido5550, ejerciciosPOJO.ejercicio8(5550));
 		Assert.assertEquals(mensajeValido1000, ejerciciosPOJO.ejercicio8(1000));
+	}
+	
+	@Test
+	public void ejercicio9() {
+		
 	}
 	
 }//Cierre de la clase

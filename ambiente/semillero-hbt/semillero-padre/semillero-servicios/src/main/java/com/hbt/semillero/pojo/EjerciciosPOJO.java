@@ -126,7 +126,7 @@ public class EjerciciosPOJO {
 	 * @author camil
 	 *
 	 */
-	public String ejercicio8(int pedido) {
+	public String ejercicio8(Integer pedido) {
 		int moneda1000=0, moneda500=0, moneda200=0, moneda100=0, moneda50=0;
 		while(pedido >= 1000) {
 			moneda1000++;
@@ -149,6 +149,17 @@ public class EjerciciosPOJO {
 			pedido = pedido - 50;
 		}
 		return "Moneda 1000: " + moneda1000 + "Moneda 500: " + moneda500 + "Moneda 200: " + moneda200 + "Moneda 100: " + moneda100 + "Moneda 50: " + moneda50;
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de hacer el ejercicio 9
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	public void ejercicio9() throws Exception {
+		new Exception();
 	}
 	
 }//Cierre de la clase
