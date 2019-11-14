@@ -56,10 +56,28 @@ public class EjerciciosTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void ejercicio4Test() {
 		Period periodo = ejerciciosPOJO.ejercicio4(LocalDate.parse("1997/05/17"));
 		Assert.assertEquals(periodo.getYears(), LocalDate.now().getYear());
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio 5
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	@Test
+	public void ejercicio5Test() {
+		ejerciciosPOJO.llenarArreglo(50);
+		ejerciciosPOJO.llenarArreglo(1);
+		ejerciciosPOJO.llenarArreglo(249);
+		ejerciciosPOJO.llenarArreglo(-2);
+		int [] arregloTest = {-2, 1,  50, 249};
+		int [] arregloOrdenado = ejerciciosPOJO.ejercicio5();
+		Assert.assertEquals(arregloTest, arregloOrdenado);
 	}
 	
 	

@@ -15,6 +15,12 @@ import java.time.Period;
 public class EjerciciosPOJO {
 
 	/**
+	 * Variable que almacena numeros
+	 */
+	int [] arreglo = new int [4];
+	int indice = 0;
+	
+	/**
 	 * 
 	 * Metodo encargado de no son validos: true - java.lang - 1980_s
 	 * <b>Caso de Uso</b>
@@ -65,6 +71,32 @@ public class EjerciciosPOJO {
 		Period periodo = Period.between(fechaNacimiento, fechaActual);
 		
 		return periodo;
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de realizar el ejercicio 5, ordendar menor a mayor
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	public int [] ejercicio5 () {
+		int menor;
+		for (int i = 0; i < arreglo.length; i++) {
+			for (int j = 0; j < arreglo.length; j++) {
+				if(arreglo[i] < arreglo[i+1]) {
+					menor = arreglo[i+1];
+					arreglo[i+1] = arreglo[i];
+					arreglo[i] = menor;
+				}
+			}
+		}
+		return arreglo;
+	}
+	
+	public void llenarArreglo(int numeroIngresar) {
+		arreglo[indice] = numeroIngresar;
+		indice++;
 	}
 	
 }//Cierre de la clase
