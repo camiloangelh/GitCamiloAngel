@@ -116,7 +116,7 @@ public class AppTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void compararCadenas() {
 		String cadena1 = "street";
 		String cadena2;
@@ -131,7 +131,7 @@ public class AppTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void compararCadenasEquals() {
 		String cadena1 = "street";
 		String cadena2;

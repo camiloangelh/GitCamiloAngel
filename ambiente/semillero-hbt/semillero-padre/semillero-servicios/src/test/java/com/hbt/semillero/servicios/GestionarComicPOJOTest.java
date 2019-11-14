@@ -51,7 +51,7 @@ public class GestionarComicPOJOTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void creartComicDTOTest() {
 		gestionarComicPOJO = new GestionarComicPOJO();
 		ComicDTO comicDTO = new ComicDTO("2", "Captain America Corps 1-5 USA", "Panini Comics", TematicaEnum.FANTASTICO,
@@ -105,7 +105,7 @@ public class GestionarComicPOJOTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void modificarComicDTOTest() {
 		String nombreNuevo = "Captain America";
 		// Se modifica el comic con id 2
@@ -121,7 +121,7 @@ public class GestionarComicPOJOTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void eliminarComicDTOTest() {
 		// Se elimina el comic con el id 1
 		gestionarComicPOJO.eliminarComic("1");
@@ -130,7 +130,7 @@ public class GestionarComicPOJOTest {
 	}
 
 	// TODO Preguntar a Cindy en la siguiente clase
-	@Test
+	@Test(enabled = false)
 	public void agregarComicDTOListaTest() {
 
 	}

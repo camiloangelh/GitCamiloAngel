@@ -3,6 +3,9 @@
  */
 package com.hbt.semillero.pojo;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
  * <b>Descripción:<b> Clase que determina
  * <b>Caso de Uso:<b> 
@@ -25,6 +28,14 @@ public class EjerciciosPOJO {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de verfiicar si un numero es primo
+	 * <b>Caso de Uso</b>
+	 * 
+	 * @param numero
+	 * @return true si es primo, false si no lo es
+	 */
 	public boolean ejercicio3 (int numero) {
 		int contador = 0;
 		
@@ -38,7 +49,22 @@ public class EjerciciosPOJO {
 		}else {
 			return false;
 		}
-
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de validar si es igual a la fecha de hoy
+	 * <b>Caso de Uso</b>
+	 * 
+	 * @return
+	 */
+	public Period ejercicio4(LocalDate fechaNacimiento) {
+		
+		LocalDate fechaActual = LocalDate.now();
+		
+		Period periodo = Period.between(fechaNacimiento, fechaActual);
+		
+		return periodo;
 	}
 	
 }//Cierre de la clase
