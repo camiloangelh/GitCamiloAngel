@@ -72,16 +72,16 @@ export class GestionarComicComponent implements OnInit {
     /**
      * @description Metodo que permite validar el formulario y crear o actulizar un comic
      */
-    public crearActualizarComic(nombreComic : string) : void {
+    public crearActualizarComic() : void {
         this.submitted = true;
         if(this.gestionarComicForm.invalid) {
             return;
         }
-        let busquedaComic = this.buscarComicNombre(nombreComic);
+        let busquedaComic = this.buscarComicNombre(this.gestionarComicForm.controls.nombre.value);
         //Si el comic ya existe, se edita la informacion actual
         if (busquedaComic != null){
             //Conversion number
-            let posicion = +busquedaComic;
+            let  posicion: any = busquedaComic;
             this.comic.nombre = this.gestionarComicForm.controls.nombre.value;
             this.comic.editorial = this.gestionarComicForm.controls.editorial.value;
             this.comic.tematica = this.gestionarComicForm.controls.tematica.value;
@@ -91,7 +91,7 @@ export class GestionarComicComponent implements OnInit {
             this.comic.autores = this.gestionarComicForm.controls.autores.value;
             this.comic.color = this.gestionarComicForm.controls.color.value;
 
-            this.listaComics[posicion] = this.comic;
+            this.listaComics[posicion-1] = this.comic;
         }else{
             this.idComic++;
             this.comic = new ComicDTO();
@@ -106,14 +106,16 @@ export class GestionarComicComponent implements OnInit {
             this.comic.color = this.gestionarComicForm.controls.color.value;
             
             this.listaComics.push(this.comic);
-            this.limpiarFormulario();
+           
         }
+        this.limpiarFormulario();
     }
 
     /**
      * @description Metodo encargado de buscar un comic en la listaComics, retorna el id del comic
-     * @param idComic que se esta buscando
+     * @param nombreComic nombre del comic que se esta buscando
      * @author Camilo Angel Hurtado <cangelh@uqvirtual.edu.co>
+     * @returns el id del comic si se encontro
      */
     public buscarComicNombre (nombreComic : string) : string {
         for (let i = 0; i < this.listaComics.length; i++) {
@@ -159,10 +161,14 @@ export class GestionarComicComponent implements OnInit {
         this.router.navigate(['consultar-comic', comic]);
     }
 
+    /**
+     * @description Metodo que prepara los campos para proceder a editar el Comic
+     * @param posicion en la que se encuentra el comic
+     */
     public editarComic(posicion : number) : void {
         this.comic = this.listaComics[posicion];
 
-        this.gestionarComicForm.controls.nombre.setValue(this.comic.nombre );
+        this.gestionarComicForm.controls.nombre.setValue(this.comic.nombre);
         this.gestionarComicForm.controls.editorial.setValue(this.comic.editorial);
         this.gestionarComicForm.controls.tematica.setValue(this.comic.tematica);
         this.gestionarComicForm.controls.coleccion.setValue(this.comic.coleccion);
@@ -170,10 +176,14 @@ export class GestionarComicComponent implements OnInit {
         this.gestionarComicForm.controls.precio.setValue(this.comic.precio);
         this.gestionarComicForm.controls.autores.setValue(this.comic.autores);
         this.gestionarComicForm.controls.color.setValue(this.comic.color);
+        //Se deshabilita el campo nombre, debido a que se busca el comic por nombre
+        this.gestionarComicForm.controls.nombre.disable();
     }
 
     /**
      * @description Metodo para eliminar un elemento de la lista de Comics
+     * @param posicion en la que se encuentra el comis
+     * @author Camilo Angel Hurtado <cangelh@uqvirtual.edu.co>
      */
     public eliminarComic(posicion : number) : void {
         this.listaComics.splice(posicion, 1);
@@ -192,6 +202,8 @@ export class GestionarComicComponent implements OnInit {
         this.gestionarComicForm.controls.precio.setValue(null);
         this.gestionarComicForm.controls.autores.setValue(null);
         this.gestionarComicForm.controls.color.setValue(null);
+
+        this.gestionarComicForm.controls.nombre.enable();
     }
 
     /**

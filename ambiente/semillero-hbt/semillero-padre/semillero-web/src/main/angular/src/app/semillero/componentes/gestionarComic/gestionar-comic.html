@@ -79,7 +79,7 @@
                 <span></span>
             </div>
             <div class="col-6 text-right">
-                <button type="button" class="btn btn-primary" (click)="crearActualizarComic(f.nombre)">Crear/Editar</button>
+                <button type="button" class="btn btn-primary" (click)="crearActualizarComic()">Crear/Editar</button>
             </div>
         </div>
 
@@ -110,7 +110,7 @@
                             <td>
                                 <i class="fas fa-search 2x ml-1" (click)="navegarConsultarComic(i)" title="Consultar"></i>
                                 <i class="fas fa-pencil-alt 2x ml-1"  (click)="editarComic(i)" title="Editar"></i>
-                                <i class="far fa-times-circle 2x ml-1" title="Eliminar"></i>
+                                <i class="far fa-times-circle 2x ml-1" (click)="eliminarComic(i)" title="Eliminar"></i>
                             </td>
                         </tr>
                     </tbody>
