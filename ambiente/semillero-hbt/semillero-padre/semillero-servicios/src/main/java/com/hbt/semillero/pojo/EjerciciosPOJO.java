@@ -144,7 +144,7 @@ public class EjerciciosPOJO {
 			moneda100++;
 			pedido = pedido - 100;
 		}
-		while(pedido > 100) {
+		while(pedido > 50) {
 			moneda50++;
 			pedido = pedido - 50;
 		}
