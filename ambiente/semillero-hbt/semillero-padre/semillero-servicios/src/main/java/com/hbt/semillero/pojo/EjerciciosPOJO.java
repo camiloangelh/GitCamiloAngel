@@ -83,11 +83,12 @@ public class EjerciciosPOJO {
 	public int [] ejercicio5 () {
 		int menor;
 		for (int i = 0; i < arreglo.length; i++) {
-			for (int j = 0; j < arreglo.length; j++) {
-				if(arreglo[i] < arreglo[i+1]) {
-					menor = arreglo[i+1];
-					arreglo[i+1] = arreglo[i];
-					arreglo[i] = menor;
+			for (int j = 0; j < arreglo.length-i-1; j++) {
+				if(arreglo[j] > arreglo[j+1]) {
+						menor = arreglo[j+1];
+						arreglo[j+1] = arreglo[j];
+						arreglo[j] = menor;
+					
 				}
 			}
 		}
