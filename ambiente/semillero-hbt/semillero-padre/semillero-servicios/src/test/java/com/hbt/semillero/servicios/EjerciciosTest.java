@@ -69,7 +69,7 @@ public class EjerciciosTest {
 	 * @author camil
 	 *
 	 */
-	@Test
+	@Test(enabled = false)
 	public void ejercicio5Test() {
 		ejerciciosPOJO.llenarArreglo(50);
 		ejerciciosPOJO.llenarArreglo(1);
@@ -80,5 +80,29 @@ public class EjerciciosTest {
 		Assert.assertEquals(arregloTest, arregloOrdenado);
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio 7
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	@Test(enabled = false)
+	public void ejercicio7Test() {
+		
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio 8, devolver monedas
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	@Test
+	public void ejercicio8Test() {
+		String mensajeValido5550 = "Moneda 1000: " + 5 + "Moneda 500: " + 1 + "Moneda 200: " + 0 + "Moneda 100: " + 0 + "Moneda 50: " + 1;
+		Assert.assertEquals(mensajeValido5550, ejerciciosPOJO.ejercicio8(5550));
+	}
 	
 }//Cierre de la clase

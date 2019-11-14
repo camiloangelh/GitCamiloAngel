@@ -95,9 +95,60 @@ public class EjerciciosPOJO {
 		return arreglo;
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de llenar el arreglo 
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 * 
+	 * @param numeroIngresar
+	 */
 	public void llenarArreglo(int numeroIngresar) {
 		arreglo[indice] = numeroIngresar;
 		indice++;
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de realizar el ejercicio 7, llegue tarde :/
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	public void ejercicio7() {
+		
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de realizar el ejercicio 8
+	 * <b>Caso de Uso</b>
+	 * @author camil
+	 *
+	 */
+	public String ejercicio8(int pedido) {
+		int moneda1000=0, moneda500=0, moneda200=0, moneda100=0, moneda50=0;
+		while(pedido > 1000) {
+			moneda1000++;
+			pedido = pedido - 1000;
+		}
+		while(pedido > 500) {
+			moneda500++;
+			pedido = pedido - 500;
+		}
+		while(pedido > 200) {
+			moneda200++;
+			pedido = pedido - 200;
+		}
+		while(pedido > 100) {
+			moneda100++;
+			pedido = pedido - 100;
+		}
+		while(pedido > 100) {
+			moneda50++;
+			pedido = pedido - 50;
+		}
+		return "Moneda 1000: " + moneda1000 + "Moneda 500: " + moneda500 + "Moneda 200: " + moneda200 + "Moneda 100: " + moneda100 + "Moneda 50: " + moneda50;
 	}
 	
 }//Cierre de la clase
