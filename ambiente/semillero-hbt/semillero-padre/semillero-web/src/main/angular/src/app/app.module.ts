@@ -13,10 +13,13 @@ import { BienvenidaComponent } from './semillero/componentes/home/bienvenida-com
 import { CrearPersonaComponent } from './semillero/componentes/crearPersona/crear-persona-component';
 import { GestionarComicComponent } from './semillero/componentes/gestionarComic/gestionar-comic';
 import { ConsultarComicComponent } from './semillero/componentes/consultarComic/consultar-comic';
+import { GestionarProveedorComponent } from './semillero/componentes/gestionarProveedor/gestionar-proveedor';
+import { ConsultarProveedorComponent } from './semillero/componentes/consultarProveedor/consultar-proveedor'
 
 // DTOs
 export { ComicDTO } from './semillero/dto/comic.dto';
 export { ResultadoDTO } from './semillero/dto/resultado.dto';
+export { ProveedorDTO } from './semillero/dto/proveedor.dto'
 
 //Manejo de servicios
 
@@ -30,7 +33,9 @@ import {AbstractService} from './semillero/services/template.service';
     BienvenidaComponent,
     CrearPersonaComponent,
     GestionarComicComponent,
-    ConsultarComicComponent
+    ConsultarComicComponent,
+    GestionarProveedorComponent,
+    ConsultarProveedorComponent
   ],
   imports: [
     BrowserModule,

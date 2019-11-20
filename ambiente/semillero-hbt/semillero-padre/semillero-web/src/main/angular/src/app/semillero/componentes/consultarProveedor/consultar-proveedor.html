@@ -1,0 +1,60 @@
+<div class="container">
+    <form [formGroup]="gestionarProveedorForm">
+        <h1>Gestionar Proveedores</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="nombreProveedor">Nombre:</label>
+                <input type="text" class="form-control" id="nombreProveedor" formControlName="nombreProveedor"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombreProveedor.errors }" maxlength="50">
+                <div *ngIf="submitted && f.nombre.errors">
+                    <span class="text-danger" *ngIf="f.nombre.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" id="direccion" formControlName="direccion">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-6">
+                <label for="montoCredito">Monto Credito:</label>
+                <input type="number" class="form-control" id="montoCredito" formControlName="montoCredito">
+            </div>
+
+            <div class="col-6">
+                <label for="estadoProveedor">Estado Proveedor:</label>
+                <br>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" class="custom-control-input" formControlName="estado"
+                        value="true">
+                    <label class="custom-control-label" for="customRadioInline1">Activo</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" class="custom-control-input" formControlName="estado"
+                        value="false">
+                    <label class="custom-control-label" for="customRadioInline2">Inactivo</label>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <span></span>
+            </div>
+            <div class="col-6 text-right">
+                <button type="button" (click)="navegarGestionarProveedor()"class="btn btn-primary">Regresar</button>
+            </div>
+        </div>
+
+        <br>
+
+    </form>
+
+</div>

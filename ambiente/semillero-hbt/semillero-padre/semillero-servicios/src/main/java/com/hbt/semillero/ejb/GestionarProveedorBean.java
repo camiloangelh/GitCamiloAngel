@@ -41,15 +41,16 @@ public class GestionarProveedorBean implements IGestionarProveedorLocal {
 	 */
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void crearProveedor(ProveedorDTO proveedorDTO) throws NombreYaExisteException, NoExistenRegistrosException, MaximoProveedoresException {
+	public void crearProveedor(ProveedorDTO proveedorDTO)
+			throws NombreYaExisteException, NoExistenRegistrosException, MaximoProveedoresException {
 		// Se valida que el nombre del proveedor no exista
-		if (consultarProveedorPorNombre(proveedorDTO.getNombre()) == null) {
-			//Se valida que haya un maximo de 30 proveedores activos
-			if(!calcularCantidadProveedoresActivos()) {
-			Proveedor proveedor = convertirProveedorDTOToProveedor(proveedorDTO);
-			// Se persiste el proveedor
-			entityManager.persist(proveedor);
-			}else {
+		if (consultarProveedorPorId(String.valueOf(proveedorDTO.getId())) == null) {
+			// Se valida que haya un maximo de 30 proveedores activos
+			if (!calcularCantidadProveedoresActivos()) {
+				Proveedor proveedor = convertirProveedorDTOToProveedor(proveedorDTO);
+				// Se persiste el proveedor
+				entityManager.persist(proveedor);
+			} else {
 				throw new MaximoProveedoresException("Maximo proveedores permitidos");
 			}
 		} else {
@@ -66,7 +67,7 @@ public class GestionarProveedorBean implements IGestionarProveedorLocal {
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public List<ProveedorDTO> consultarProveedores() throws NoExistenRegistrosException {
 		List<ProveedorDTO> resultadoProveedorDTO = new ArrayList<ProveedorDTO>();
-		List<Proveedor> resultadoProveedor = entityManager.createQuery("select p from Proveedor p").getResultList();
+		List<Proveedor> resultadoProveedor = entityManager.createQuery("select p from TC_PROVEEDOR p").getResultList();
 		// Se valida que la lista tenga proveedores almacenados
 		if (resultadoProveedor.size() > 0) {
 			for (Proveedor proveedor : resultadoProveedor) {
@@ -92,7 +93,9 @@ public class GestionarProveedorBean implements IGestionarProveedorLocal {
 		if (proveedor != null) {
 			return convertirProveedorToProveedorDTO(proveedor);
 		} else {
-			throw new NoExistenRegistrosException("No existe el proveedor con id = " + id);
+			return null;
+			//throw new NoExistenRegistrosException("No existe el proveedor con id = " + id);
+			
 		}
 	}
 

@@ -47,4 +47,12 @@ export class MenuComponent implements OnInit {
   public navegarGestionarCompra(): void {
     //WIP
   }
+
+  /**
+   * @description Metodo encargado de direccionar al componente GestionanProveedorComponent
+   * @author Camilo Angel Hurtado <cangelh@uqvirtual.edu.co>
+   */
+  public navegarGestionarProveedor(): void {
+    this.router.navigate(['gestionar-proveedor']);
+  }
 }

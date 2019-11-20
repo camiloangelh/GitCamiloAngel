@@ -1,0 +1,91 @@
+<div class="container">
+    <form [formGroup]="gestionarProveedorForm">
+        <h1>Gestionar Proveedores</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="nombreProveedor">Nombre:</label>
+                <input type="text" class="form-control" id="nombreProveedor" formControlName="nombreProveedor"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombreProveedor.errors }" maxlength="50">
+                <div *ngIf="submitted && f.nombre.errors">
+                    <span class="text-danger" *ngIf="f.nombre.errors.required">Campo requerido.</span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" id="direccion" formControlName="direccion">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-6">
+                <label for="montoCredito">Monto Credito:</label>
+                <input type="number" class="form-control" id="montoCredito" formControlName="montoCredito">
+            </div>
+
+            <div class="col-6">
+                <label for="estadoProveedor">Estado Proveedor:</label>
+                <br>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" class="custom-control-input" formControlName="estado"
+                        value="true">
+                    <label class="custom-control-label" for="customRadioInline1">Activo</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" class="custom-control-input" formControlName="estado"
+                        value="false">
+                    <label class="custom-control-label" for="customRadioInline2">Inactivo</label>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <span></span>
+            </div>
+            <div class="col-6 text-right">
+                <button type="button" (click)="crearProveedor()"class="btn btn-primary">Crear/Editar</button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row" [hidden]="listaProveedores.length === 0">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Monto Credito</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--date:"MM/dd/yy"
+                        | uppercase-->
+                        <tr *ngFor="let proveedor of listaProveedores;let i=index;">
+                            <th scope="row">{{proveedorDTO.id}}</th>
+                            <td>{{proveedorDTO.nombre | lowercase }}</td>
+                            <td>{{proveedorDTO.direccion | lowercase }}</td>
+                            <td>{{proveedorDTO.montoCredito | number: '.2'}}</td>
+                            <td>{{proveedorDTO.estado ? 'Activo' : 'Inactivo' }}</td>
+                            <td>
+                                <i class="fas fa-search 2x ml-1" (click)="navegarConsultarProveedor()" title="Consultar"></i>
+                                <i class="fas fa-pencil-alt 2x ml-1" title="Editar"></i>
+                                <i class="far fa-times-circle 2x ml-1" (click)="eliminarProveedor(proveedor.id)" title="Eliminar"></i>s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+
+</div>

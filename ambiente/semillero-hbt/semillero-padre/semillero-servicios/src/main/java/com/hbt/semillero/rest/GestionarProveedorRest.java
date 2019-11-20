@@ -12,9 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.dto.ProveedorDTO;
-import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.ejb.IGestionarProveedorLocal;
 import com.hbt.semillero.excepciones.MaximoProveedoresException;
 import com.hbt.semillero.excepciones.NoExistenRegistrosException;
