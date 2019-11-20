@@ -218,7 +218,7 @@ public class ComicDTO implements Serializable {
 	 * @return El tematica asociado a la clase
 	 */
 	@Enumerated(value = EnumType.STRING)
-	public TematicaEnum getTematica() {
+	public TematicaEnum getTematicaEnum() {
 		return tematicaEnum;
 	}
 
@@ -358,16 +358,5 @@ public class ComicDTO implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	/**
-	 * Metodo encargado de 
-	 * <b>Caso de Uso</b>
-	 * @author camil
-	 * 
-	 * @return
-	 */
-	public TematicaEnum getTematicaEnum() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }// Cierre de la clase

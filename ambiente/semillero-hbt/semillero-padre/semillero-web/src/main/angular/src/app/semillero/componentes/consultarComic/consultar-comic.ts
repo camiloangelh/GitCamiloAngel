@@ -93,4 +93,5 @@ export class ConsultarComicComponent implements OnInit {
         return this.consultarComicForm.controls;
     }
 
+
 }//Cierre de la clase

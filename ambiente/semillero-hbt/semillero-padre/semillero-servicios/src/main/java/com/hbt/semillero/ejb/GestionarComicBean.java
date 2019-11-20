@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.hbt.semillero.dto.ComicDTO;
+import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Comic;
 
 /**
@@ -50,13 +51,13 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	 * 
 	 * @param comicDTO
 	 */
-	// TODO Agregar interface
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW) // Tengo conversacion activa? se crea una transaccion
-																	// nueva.
-	public void crearComic(ComicDTO comicDTO) {
+	public ResultadoDTO crearComic(ComicDTO comicDTO) {
 		Comic comic = convertirComicDTOToComic(comicDTO);
+		ResultadoDTO resultadoDTO = new ResultadoDTO(Boolean.TRUE, "Comic creado exitosamente");
 
 		entityManager.persist(comic);
+		return resultadoDTO;
 	}
 
 	/**
@@ -73,7 +74,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 		comic.setId(Long.parseLong(comicModificar.getId()));
 		comic.setNombre(comicModificar.getNombre());
 		comic.setEditorial(comicModificar.getEditorial());
-		comic.setTematicaEnum(comicModificar.getTematica());
+		comic.setTematicaEnum(comicModificar.getTematicaEnum());
 		comic.setColeccion(comicModificar.getColeccion());
 		comic.setNumeroPaginas(comicModificar.getNumeroPaginas());
 		comic.setPrecio(comicModificar.getPrecio());
@@ -109,15 +110,23 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	 * @see com.hbt.semillero.ejb.IGestionarComicLocal#eliminarComic(java.lang.Long)
 	 */
 	@Override
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void eliminarComic(Long idComic) {
-		if (idComic != null) {
-			ComicDTO comicDTOEliminar = consultarComic(idComic.toString());
-			if (comicDTOEliminar != null) {
-				Comic comicEliminar = convertirComicDTOToComic(comicDTOEliminar);
-				entityManager.remove(comicEliminar);
-			}
-		}
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public ResultadoDTO eliminarComic(Long idComic) {
+		ResultadoDTO resultadoDTO = new ResultadoDTO(Boolean.FALSE, "No se pudo eliminar el comic");
+		
+		entityManager.createQuery("delete from comic where SCID = '" + idComic + "'");
+		resultadoDTO.setExitoso(true);
+	
+//			ComicDTO comicDTOEliminar = consultarComic(idComic.toString());
+//			System.out.println(comicDTOEliminar.getNombre());
+//			if (comicDTOEliminar != null) {
+//				Comic comicEliminar = convertirComicDTOToComic(comicDTOEliminar);
+//				resultadoDTO.setExitoso(true);
+//				resultadoDTO.setMensajeEjecucion("Se elimino el comic exitosamente");
+//				entityManager.remove(comicEliminar); 
+//			}
+		
+		return resultadoDTO;
 	}
 
 	/**
